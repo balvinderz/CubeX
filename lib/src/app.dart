@@ -20,8 +20,8 @@ class App extends StatelessWidget
           children: <Widget>[
             f2lCard(),
             OllCard(),
-            f2lCard(),
-            f2lCard()
+            PllCard(),
+            Game()
           ],),
         )
           
