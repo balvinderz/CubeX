@@ -9,13 +9,50 @@ class GameScreen extends StatelessWidget
       appBar: AppBar(),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.end,
+        mainAxisSize: MainAxisSize.max,
+
         children: <Widget>[
-          Transform(
-            transform: Matrix4.skewX(0.1),
-            child: Container(
-              height: 100,
-              color: Colors.white,
+           Container(
+             padding: EdgeInsets.all(8.0),
+            height: 100,
+            color: Colors.white,
+            child: GridView(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+              padding: EdgeInsets.all(16.0),
+              children : [
+
+                Align(
+                  child: Text("FIGHT",style:
+                  TextStyle(
+                      fontSize: 35.0,
+                      color: Colors.black,
+                      fontFamily: 'gamefont'
+                  ),),
+                  alignment: Alignment.topLeft,
+                ),
+                Align(
+                  alignment : Alignment.topRight,
+
+                  child: Padding(
+                    padding: const EdgeInsets.only(right : 8.0),
+                    child: Text("RUN",style:
+                    TextStyle(
+                        fontSize: 35.0,
+                        color: Colors.black,
+                        fontFamily: 'gamefont'
+                    ),),
+                  ),
+                ),
+              ],
             ),
+            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              Container(
+
+              )
+            ],
           )
         ],
       )
