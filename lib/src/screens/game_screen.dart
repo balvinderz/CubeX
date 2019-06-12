@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
 class GameScreen extends StatelessWidget
 {
   @override
@@ -12,48 +11,85 @@ class GameScreen extends StatelessWidget
         mainAxisSize: MainAxisSize.max,
 
         children: <Widget>[
-           Container(
-             padding: EdgeInsets.all(8.0),
-            height: 100,
+      Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+        mainAxisSize: MainAxisSize.max,
+        children: <Widget>[
+          Container(
             color: Colors.white,
-            child: GridView(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-              padding: EdgeInsets.all(16.0),
-              children : [
-
-                Align(
-                  child: Text("FIGHT",style:
-                  TextStyle(
-                      fontSize: 35.0,
-                      color: Colors.black,
-                      fontFamily: 'gamefont'
+            margin: EdgeInsets.only(bottom: 10.0),
+            child: Column(
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text("Cuber",style:TextStyle(
+                      fontFamily: 'gamefont',
+                      fontSize: 24.0,
+                      color: Colors.black
                   ),),
-                  alignment: Alignment.topLeft,
-                ),
-                Align(
-                  alignment : Alignment.topRight,
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
 
-                  child: Padding(
-                    padding: const EdgeInsets.only(right : 8.0),
-                    child: Text("RUN",style:
+                    children: <Widget>[
+                      Padding(
+                        padding : EdgeInsets.all(10.0),
+                        child: Text("HP: ",style:TextStyle(
+                            fontFamily: 'gamefont',
+                            fontSize: 20.0,
+                            color: Colors.black
+                        ),),
+                      ),
+                      SizedBox(
+                        width: 100.0,
+                        child: LinearProgressIndicator(
+                          value: 0.8,
+
+                        ),
+                      )
+                    ],
+                  )
+                ],
+              ),
+          ),
+        ],
+      ),
+           Container(
+               padding: EdgeInsets.all(8.0),
+              height: 100,
+              color: Colors.white,
+              child: GridView(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+                padding: EdgeInsets.all(16.0),
+                children : [
+
+                  Align(
+                    child: Text("FIGHT",style:
                     TextStyle(
                         fontSize: 35.0,
                         color: Colors.black,
                         fontFamily: 'gamefont'
                     ),),
+                    alignment: Alignment.topLeft,
                   ),
-                ),
-              ],
-            ),
-            ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-              Container(
+                  Align(
+                    alignment : Alignment.topRight,
 
-              )
-            ],
-          )
+                    child: Padding(
+                      padding: const EdgeInsets.only(right : 8.0),
+                      child: Text("RUN",style:
+                      TextStyle(
+                          fontSize: 35.0,
+                          color: Colors.black,
+                          fontFamily: 'gamefont'
+                      ),),
+                    ),
+                  ),
+                ],
+
+              ),
+           ),
+
         ],
       )
     );
