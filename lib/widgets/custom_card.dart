@@ -1,4 +1,5 @@
 import 'package:cube_alarm/src/screens/game_screen.dart';
+import 'package:cube_alarm/src/screens/oll_screen.dart';
 import 'package:flutter/material.dart';
 class f2lCard extends StatelessWidget
 {
@@ -41,7 +42,10 @@ class OllCard extends StatelessWidget
 
       child: InkWell(
         onTap: (){
-
+            Navigator.push(context, MaterialPageRoute(builder: (context)
+            {
+              return OllScreen();
+            }));
         },
 
         splashColor: Colors.yellow,
