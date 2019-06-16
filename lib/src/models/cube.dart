@@ -18,16 +18,23 @@ class Cube
    }
    Cube moveR()
    {
+     // TODO FIX KARNA HAI
           var tempcube =temp();
+          for(k=0;k<3;k++)
+            cube[2][0][k]=tempcube[2][k][2];
+          for(k=0;k<3;k++)
+            cube[2][1][k]=tempcube[2][k][1];
+          cube[2][2][0]=tempcube[2][0][0];
+          cube[2][2][1]=tempcube[2][1][1];
+          cube[2][2][2]=tempcube[2][2][0];
          for(k=0;k<3;k++)
            {
-             cube[0][k][2]=tempcube[3][k][2];
-
-             cube[1][k][2]=tempcube[0][k][2];
+             cube[0][k][2]=tempcube[3][k][0];
+             cube[3][k][0]=tempcube[5][2][k];
              cube[5][k][2]=tempcube[1][k][2];
-             cube[3][k][2]=tempcube[5][k][2];
-
+             cube[1][k][2]=tempcube[0][k][2];
            }
+          tempcube=null;
 
    }
    Cube moveL()
@@ -40,6 +47,8 @@ class Cube
          cube[1][k][0]=tempcube[0][k][0];
          cube[5][k][0]=tempcube[1][k][0];
          cube[3][k][0]=tempcube[5][k][0];       }
+     tempcube=null;
+
    }
    //TODO pass constant index
    Cube moveU() // bug shayad
@@ -47,14 +56,21 @@ class Cube
 
      var tempcube=temp();
      int constantindex = 0;
-     for(j=0;j<3;j++)
-         cube[0][constantindex][j]=tempcube[2][constantindex][j];
-     for(j=0;j<3;j++)
-       cube[2][j][constantindex]=tempcube[5][j][constantindex];
-     for(j=0;j<3;j++)
-       cube[4][j][2]=tempcube[0][j][constantindex];
-     for(j=0;j<3;j++)
-       cube[5][j][constantindex]=tempcube[4][0][j];
+     for(k=0;k<3;k++)
+    cube[1][0][k]=tempcube[1][k][2];
+     for(k=0;k<3;k++)
+     cube[1][1][k]=tempcube[1][k][1];
+     cube[1][2][0]=tempcube[1][0][0];
+     cube[1][2][1]=tempcube[1][1][1];
+     cube[1][2][2]=tempcube[1][2][0];
+      for(k=0;k<3;k++)
+        {
+          cube[0][0][k]=tempcube[2][0][k];
+          cube[2][k][0]=tempcube[5][2][k];
+          cube[5][2][k]=tempcube[4][k][2];
+          cube[4][k][2]=tempcube[0][0][k];
+        }
+      tempcube=null;
    }
    printCube()
    {
@@ -78,3 +94,4 @@ class Cube
    }
 
 }
+
